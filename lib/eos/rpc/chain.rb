@@ -3,7 +3,7 @@ module Eos
     class Chain
       include HTTParty
       # debug_output
-      base_uri 'localhost:8888/v1/chain'
+      base_uri 'testnet1.eos.io/v1/chain'
 
       def get_info
         self.class.get("/get_info").parsed_response

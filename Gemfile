@@ -8,7 +8,7 @@ gemspec
 gem 'httparty'
 
 group :test do
-  gem 'vcr'
+  gem 'minitest-vcr'
   gem 'rake'
   gem 'minitest'
 end

@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://testnet1.eos.io/v1/chain/get_info
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Server:
+      - WebSocket++/0.7.0
+      Content-Length:
+      - '370'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"server_version":"2cc40a4e","head_block_num":2734255,"last_irreversible_block_num":2734239,"head_block_id":"0029b8af78906fbbb9edcfc3d63a8faedc15adcc0f98c624d89b70d40be8537c","head_block_time":"2018-02-08T19:15:10","head_block_producer":"inito","recent_slots":"1111111111111111111111111111111111111111111111111111111111111111","participation_rate":"1.00000000000000000"}'
+    http_version: 
+  recorded_at: Thu, 08 Feb 2018 19:15:11 GMT
+recorded_with: VCR 4.0.0
