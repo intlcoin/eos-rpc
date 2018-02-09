@@ -1,15 +1,13 @@
-# Eos::Rpc
+# Eos::Rpc Gem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/eos/rpc`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Feature complete [EOS RPC API](https://eosio.github.io/eos/group__eosiorpc.html) for ruby.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'eos-rpc'
+gem 'eos-rpc', github: 'intlcoin/eos-rpc'
 ```
 
 And then execute:
@@ -22,14 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+See the [EOS RPC API docs](https://eosio.github.io/eos/group__eosiorpc.html).
 
-## Development
+```ruby
+Eos::Rpc::Chain.new.get_info
+=> {"server_version"=>"2cc40a4e", "head_block_num"=>2776321, "last_irreversible_block_num"=>2776307, "head_block_id"=>"002a5d01f8cf11c97af632ac488b74ea16f0b5a4a918449e62879bb59db8c9b9", "head_block_time"=>"2018-02-09T18:37:26", "head_block_producer"=>"initm", "recent_slots"=>"1111111111111111111111111111111111111111111111111111111111111111", "participation_rate"=>"1.00000000000000000"}
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+> Eos::Rpc::Wallet.new.create 'test'
+=> "PW5KLfsevYxAzNuLiHHsPz3LhRYDTkN461qgXLdFitjzJ3uj2LAuQ"
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+By default gem uses public testnet endpoint `testnet1.eos.io`
+
+You can oveeride it by setting `EOS_RPC_ENDPOINT` variable
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/eos-rpc.
+Bug reports and pull requests are welcome on GitHub at https://github.com/intlcoin/eos-rpc.

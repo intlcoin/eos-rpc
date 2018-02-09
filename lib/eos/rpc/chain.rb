@@ -2,8 +2,8 @@ module Eos
   module Rpc
     class Chain
       include HTTParty
-      # debug_output
-      base_uri 'testnet1.eos.io/v1/chain'
+
+      base_uri "#{Eos::Rpc::ENDPOINT}/v1/chain"
 
       def get_info
         self.class.get("/get_info").parsed_response
@@ -55,22 +55,13 @@ module Eos
         self.class.post('/abi_bin_to_json', body: json).parsed_response
       end
 
-      def push_transaction(ref_block_num:, ref_block_prefix:, expiration:, scope: [], read_scope: [], messages: [], signatures: [])
-        json = {
-          ref_block_num: ref_block_num.to_s,
-          ref_block_prefix: ref_block_prefix.to_s,
-          expiration: expiration,
-          scope: scope,
-          read_scope: read_scope,
-          messages: messages,
-          signatures: signatures
-        }.to_json
-        self.class.post('/push_transaction', body: json).parsed_response
+      def push_transaction(transaction)
+        self.class.post('/push_transaction', body: transaction.to_json).parsed_response
       end
 
       def get_required_keys(transaction:, available_keys: [])
         json = {
-          transaction: transaction,
+          transaction: transaction.to_hash,
           available_keys: available_keys
         }.to_json
         self.class.post('/get_required_keys', body: json).parsed_response
