@@ -30,9 +30,7 @@ Eos::Rpc::Chain.new.get_info
 => "PW5KLfsevYxAzNuLiHHsPz3LhRYDTkN461qgXLdFitjzJ3uj2LAuQ"
 ```
 
-By default gem uses public testnet endpoint `testnet1.eos.io`
-
-You can oveeride it by setting `EOS_RPC_ENDPOINT` variable
+By default gem uses public testnet endpoint `testnet1.eos.io`, you can override it by setting `EOS_RPC_ENDPOINT` environment variable
 
 ## Contributing
 
