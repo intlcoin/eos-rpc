@@ -36,6 +36,24 @@ module Eos
         }.to_json
         self.class.post('/get_table_rows', body: json).parsed_response
       end
+
+      def abi_json_to_bin(code:, action:, args: {})
+        json = {
+          code: code.to_s,
+          action: action.to_s,
+          args: args
+        }.to_json
+        self.class.post('/abi_json_to_bin', body: json).parsed_response
+      end
+
+      def abi_bin_to_json(code:, action:, binargs:)
+        json = {
+          code: code.to_s,
+          action: action.to_s,
+          binargs: binargs
+        }.to_json
+        self.class.post('/abi_bin_to_json', body: json).parsed_response
+      end
     end
   end
 end
