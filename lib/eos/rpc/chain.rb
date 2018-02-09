@@ -54,6 +54,27 @@ module Eos
         }.to_json
         self.class.post('/abi_bin_to_json', body: json).parsed_response
       end
+
+      def push_transaction(ref_block_num:, ref_block_prefix:, expiration:, scope: [], read_scope: [], messages: [], signatures: [])
+        json = {
+          ref_block_num: ref_block_num.to_s,
+          ref_block_prefix: ref_block_prefix.to_s,
+          expiration: expiration,
+          scope: scope,
+          read_scope: read_scope,
+          messages: messages,
+          signatures: signatures
+        }.to_json
+        self.class.post('/push_transaction', body: json).parsed_response
+      end
+
+      def get_required_keys(transaction:, available_keys: [])
+        json = {
+          transaction: transaction,
+          available_keys: available_keys
+        }.to_json
+        self.class.post('/get_required_keys', body: json).parsed_response
+      end
     end
   end
 end
