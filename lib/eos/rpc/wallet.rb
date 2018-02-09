@@ -9,10 +9,17 @@ module Eos
         self.class.post('/create', body: name.to_json).parsed_response
       end
 
-      # def get_block(block_num_or_id)
-      #   json = { block_num_or_id: block_num_or_id.to_s }.to_json
-      #   self.class.post('/get_block', body: json).parsed_response
-      # end
+      def open(name)
+        self.class.post('/open', body: name.to_json).parsed_response
+      end
+
+      def lock(name)
+        self.class.post('/lock', body: name.to_json).parsed_response
+      end
+
+      def lock_all
+        self.class.post('/lock_all').parsed_response
+      end
     end
   end
 end
