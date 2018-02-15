@@ -13,7 +13,7 @@ describe Eos::Rpc::Chain, :vcr do
     @chain.get_block(5).must_be_instance_of Hash
   end
 
-  it "it gets code by account name" do
-    @chain.get_block('inita').must_be_instance_of Hash
+  it "gets code by account name" do
+    @chain.get_code('inita').must_be_instance_of Hash
   end
 end
