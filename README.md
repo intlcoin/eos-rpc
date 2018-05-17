@@ -14,10 +14,6 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install eos-rpc
-
 ## Usage
 
 See the [EOS RPC API docs](https://eosio.github.io/eos/group__eosiorpc.html).
